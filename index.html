@@ -13,6 +13,7 @@
     </head>
     <body>
       <div id="app" class="container">
+
         <header >
           <img src="netflix.png" alt="logo" />
           <div class="input" >
@@ -22,16 +23,18 @@
         </header>
         <div  class="films-container container">
           <div class="film" v-for="film in films">
-            <div class="immagine">
+
+          <div class="immagine">
               <!-- <img :src="path + film.poster_path"> -->
             <img :src="(film.poster_path == null) ? 'empty.png': path + film.poster_path">
-            </div>
+
             <div class="descrizione">
               <h2 class="titolo">{{ film.title }}</h2>
               <h3>{{ film.original_title }}</h3>
-              <h3 class="lingua">{{ film.original_language }}</h3>
+              <img class="bandiera" :src="(film.original_language == 'en') ? 'uk.png' : (film.original_language == 'es') ? 'esp.png' : (film.original_language == 'it') ? 'it.png' : (film.original_language == 'pt') ? 'pt.png' :(film.original_language == 'fr') ? 'fr.png' : 'film.original_language'">
               <h3 class="vote">{{ film.vote_average }} <i class="fas fa-star"></i></h3>
             </div>
+          </div>
 
           </div>
 

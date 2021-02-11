@@ -31,23 +31,23 @@ var app = new Vue({
         console.log(this.films);
         })
         .catch((error) => alert("errori"));
-    },
-    // search(){
-    //   axios
-    //     .get("https://api.themoviedb.org/3/search/tv", {
-    //       params: {
-    //         api_key: this.apiKey,
-    //         query: this.query,
-    //         language: this.lang
-    //       }
-    //     })
-    //     .then((result) => {
-    //     // console.log(result.data);
-    //     })
-    //     .catch((error) => alert("errori"));
-    // }
 
-
-
+      axios
+        .get("https://api.themoviedb.org/3/search/tv", {
+          params: {
+            api_key: this.apiKey,
+            query: this.query,
+            language: this.lang
+          }
+        })
+        .then((result) => {
+        this.films = this.films.concat(result.data.results);
+        console.log(this.films);
+        })
+        .catch((error) => alert("errori"));
+     },
+     // faccio una funzione per arrotondare un numero
+     // nell'html richiamo questa funzione sulla media e facciamo tante stelline piene quanto è il risultato di questa fuinzione
+     // v-for in html per il numero delle stelle colorate e sottraggo al numero delle stelle vuote
   }
 });
