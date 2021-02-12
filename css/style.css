@@ -5,20 +5,42 @@
   box-sizing: border-box;
 }
 body {
-  background: #1E2D3B;
-  min-height: 100vh;
+  background-image: url("../img/bgk.jpg");
+  height: 100vh;
+  background-position: center;
+  background-size: auto;
 }
-.container {
-  height: 100%;
-  margin: 0 auto;
+header{
+  background: linear-gradient(black , black, transparent);
 }
-header {
+header nav {
+  margin: 0 50px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  width: 100%;
   height: 70px;
-  background: rgb(46, 58, 70);
+}
+nav .nav-sx,
+nav .nav-dx{
+  display: flex;
+  align-items: center;
+}
+header .nav-sx img{
+  padding-right: 20px;
+}
+header .nav-sx ul,
+header .nav-dx ul{
+  list-style: none;
+  display: flex;
+  align-items: center;
+  color: white;
+}
+header .nav-sx li{
+  padding-left: 10px;
+}
+header .nav-dx i{
+  padding-right: 20px;
+  font-size: 30px;
 }
 header img {
   height: 50px;
@@ -31,6 +53,7 @@ header img {
   align-items: center;
   flex-wrap: wrap;
   padding: 30px 0;
+  border-radius: 5px;
 }
 .films-container img {
   width: 100%;
@@ -39,16 +62,19 @@ header img {
 }
 .film {
   display: flex;
-  flex-basis: 200px;
-  margin: 10px 20px;
+  justify-content: flex-start;
+  flex-basis: 250px;
+  margin: 10px 2px;
+
 }
-.immagine{
+.film .immagine{
   position: relative;
+  transition: .5s;
+}
+.film ul{
+  padding: 20px;
 }
 .film .descrizione{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   height: 100%;
   opacity: 0;
   position: absolute;
@@ -57,26 +83,69 @@ header img {
   bottom: 0;
   right: 0;
   transition: .5s;
-  padding-top: 100px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  padding-top: 60px;
 }
 .film .descrizione:hover{
   opacity: 1;
   background: rgba(46, 58, 70, 0.7);
   color: white;
-  text-shadow: 1px 1px 1px black ;
-  padding-top: 20px;
+  text-shadow: 1px 1px 1px black;
+  z-index: 1;
+  padding-top: 0;
+  border: 1px solid white;
+}
+.film .immagine:hover{
+  transform: scale(1.1);
+  z-index: 1;
 }
 .film .descrizione img{
   width: 30px;
   height: 30px;
 }
+.film ul{
+  list-style: none;
+  height: 100%;
+}
 .film .titolo {
-  font-size: 16px;
   text-transform: uppercase;
 }
+.film span{
+  font-weight: normal;
+}
 .film .bandiera{
-  align-self: center;
+
 }
 .film .vote{
-  align-self: center;
+
+}
+.film .trama{
+}
+/* INPUT */
+input[type="text"] {
+  height: 30px;
+  font-size: 25px;
+  display: inline-block;
+  font-family: "Lato";
+  font-weight: 100;
+  border: none;
+  outline: none;
+  color: black;
+  padding: 3px;
+  padding-right: 60px;
+  width: 0px;
+  position: absolute;
+  top: 20px;
+  right: 166px;
+  background: none;
+  z-index: 1;
+  transition: .4s cubic-bezier(0.000, 0.795, 0.000, 1.000);
+  cursor: pointer;
+}
+input[type="text"]:focus {
+  background-color: white;
+  width: 400px;
+  z-index: 1;
+  cursor: text;
 }

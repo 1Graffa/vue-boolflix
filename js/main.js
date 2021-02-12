@@ -17,6 +17,14 @@ var app = new Vue({
   // vote_average: 3.5
   // vote_count: 2
   methods : {
+    // faccio una funzione per arrotondare un numero e togliere la virgola con parseint
+    // poi con v-for in html ottengo il numero delle stelle colorate a cui sottraggo il numero delle stelle vuote
+    stellePiene(voto){
+      return parseInt(voto/2);
+    },
+    stelleVuote(voto){
+      return 5 - parseInt(voto/2);
+    },
     search(){
       axios
         .get("https://api.themoviedb.org/3/search/movie", {
@@ -29,6 +37,8 @@ var app = new Vue({
         .then((result) => {
         this.films = result.data.results;
         console.log(this.films);
+        //faccio una funzione per aggiungere il cast, che avrà dei parametri
+        //per ogni elemento faccio uin ciclo che mi fa una funzione per andare a richiamare il cast il genere
         })
         .catch((error) => alert("errori"));
 
@@ -46,8 +56,5 @@ var app = new Vue({
         })
         .catch((error) => alert("errori"));
      },
-     // faccio una funzione per arrotondare un numero
-     // nell'html richiamo questa funzione sulla media e facciamo tante stelline piene quanto è il risultato di questa fuinzione
-     // v-for in html per il numero delle stelle colorate e sottraggo al numero delle stelle vuote
-  }
-});
+    }
+  });

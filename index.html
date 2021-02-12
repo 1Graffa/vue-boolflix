@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>BoolFlix</title>
-        <link rel="shortcut icon" type="image/x-icon" href="icon.ico">
+        <link rel="shortcut icon" type="image/x-icon" href="img/icon.ico">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
         <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.2/handlebars.min.js"></script>
@@ -15,30 +15,57 @@
       <div id="app" class="container">
 
         <header >
-          <img src="netflix.png" alt="logo" />
-          <div class="input" >
-            <input type="text" v-model="query" @keyup.enter="search">
-            </input>
-          </div>
+          <nav>
+            <div class="nav-sx">
+              <img src="img/netflix.png" alt="logo" />
+              <ul>
+                <li>Home</li>
+                <li>Serie TV</li>
+                <li>Film</li>
+                <li>La mia lista</li>
+              </ul>
+            </div>
+            <div class="nav-dx">
+              <div class="input" >
+                <input type="text" v-model="query" @keyup.enter="search">
+                </input>
+              </div>
+              <ul>
+                <li><i class="fas fa-search"></i></li>
+                <li><i class="fas fa-gift"></i></li>
+                <li><i class="fas fa-bell"></i></li>
+              </ul>
+
+            </div>
+
+          </nav>
+
         </header>
         <div  class="films-container container">
           <div class="film" v-for="film in films">
 
           <div class="immagine">
               <!-- <img :src="path + film.poster_path"> -->
-            <img :src="(film.poster_path == null) ? 'empty.png': path + film.poster_path">
+            <img :src="(film.poster_path == null) ? 'img/empty.png': path + film.poster_path">
 
             <div class="descrizione">
-              <h2 class="titolo">{{ film.title }}</h2>
-              <h3>{{ film.original_title }}</h3>
-              <img class="bandiera" :src="(film.original_language == 'en') ? 'uk.png' : (film.original_language == 'es') ? 'esp.png' : (film.original_language == 'it') ? 'it.png' : (film.original_language == 'pt') ? 'pt.png' :(film.original_language == 'fr') ? 'fr.png' : 'film.original_language'">
-              <h3 class="vote">{{ film.vote_average }} <i class="fas fa-star"></i></h3>
+              <ul>
+                <li><h3 class="titolo">Titolo: <span> &nbsp;{{ film.title }}</span></h3></li>
+                <li><h3 class="sottotitolo">Titolo originale: &nbsp; <span>{{ film.original_title }}</span></h3>
+                <img class="bandiera" :src="(film.original_language == 'en') ? 'img/uk.png' : (film.original_language == 'es') ? 'img/esp.png' : (film.original_language == 'it') ? 'img/it.png' : (film.original_language == 'pt') ? 'img/pt.png' :(film.original_language == 'fr') ? 'img/fr.png' : 'film.original_language'">
+                </li>
+                <li>
+                  <h3 class="vote">
+                  <i v-for="i in stellePiene(film.vote_average)" class="fas fa-star"></i>
+                  <i v-for="i in stelleVuote(film.vote_average)" class="far fa-star"></i>
+                  </h3>
+                </li>film.vote_average
+                <li><h3 class="trama">Trama:&nbsp; <span>{{ film.overview }}</span></h3></li>
+              </ul>
             </div>
           </div>
-
-          </div>
-
-  </div>
+        </div>
+      </div>
         <script src="js/main.js" charset="utf-8"></script>
     </body>
 </html>
