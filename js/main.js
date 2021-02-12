@@ -2,7 +2,7 @@ var app = new Vue({
   el: '#app',
   data: {
     films: [],
-    query: " Inserisci titolo",
+    query: "Inserisci titolo",
     apiKey: "aca274e1075a0e9933ec2a888c6e1be0",
     lang: "it-It",
     path: "https://image.tmdb.org/t/p/w342"

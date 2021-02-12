@@ -13,7 +13,6 @@
     </head>
     <body>
       <div id="app" class="container">
-
         <header >
           <nav>
             <div class="nav-sx">
@@ -35,19 +34,15 @@
                 <li><i class="fas fa-gift"></i></li>
                 <li><i class="fas fa-bell"></i></li>
               </ul>
-
             </div>
-
           </nav>
-
         </header>
+
         <div  class="films-container container">
           <div class="film" v-for="film in films">
-
           <div class="immagine">
               <!-- <img :src="path + film.poster_path"> -->
             <img :src="(film.poster_path == null) ? 'img/empty.png': path + film.poster_path">
-
             <div class="descrizione">
               <ul>
                 <li><h3 class="titolo">Titolo: <span> &nbsp;{{ film.title }}</span></h3></li>
@@ -56,8 +51,8 @@
                 </li>
                 <li>
                   <h3 class="vote">
-                  <i v-for="i in stellePiene(film.vote_average)" class="fas fa-star"></i>
-                  <i v-for="i in stelleVuote(film.vote_average)" class="far fa-star"></i>
+                    <i v-for="i in stellePiene(film.vote_average)" class="piene fas fa-star"></i>
+                    <i v-for="i in stelleVuote(film.vote_average)" class="vuote far fa-star"></i>
                   </h3>
                 </li>film.vote_average
                 <li><h3 class="trama">Trama:&nbsp; <span>{{ film.overview }}</span></h3></li>

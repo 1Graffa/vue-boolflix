@@ -11,7 +11,7 @@ body {
   background-size: auto;
 }
 header{
-  background: linear-gradient(black , black, transparent);
+  background: linear-gradient(black, black, transparent);
 }
 header nav {
   margin: 0 50px;
@@ -37,6 +37,9 @@ header .nav-dx ul{
 }
 header .nav-sx li{
   padding-left: 10px;
+}
+header .nav-sx li:first-child{
+  font-weight: bold;
 }
 header .nav-dx i{
   padding-right: 20px;
@@ -65,7 +68,6 @@ header img {
   justify-content: flex-start;
   flex-basis: 250px;
   margin: 10px 2px;
-
 }
 .film .immagine{
   position: relative;
@@ -115,10 +117,12 @@ header img {
   font-weight: normal;
 }
 .film .bandiera{
-
 }
 .film .vote{
-
+  color: #FCED3A;
+}
+.film .vote .vuote{
+  font-size: 20px;
 }
 .film .trama{
 }
