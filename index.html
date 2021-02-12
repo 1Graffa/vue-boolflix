@@ -24,9 +24,10 @@
                 <li>La mia lista</li>
               </ul>
             </div>
+            <!-- ricerca con v-model e keyup -->
             <div class="nav-dx">
               <div class="input" >
-                <input type="text" v-model="query" @keyup.enter="search">
+                <input type="text" v-model="query" placeholder="Inserisci titolo" @keyup.enter="search">
                 </input>
               </div>
               <ul>
@@ -38,7 +39,7 @@
           </nav>
         </header>
 
-        <div  class="films-container container">
+        <div  class="films-container ">
           <div class="film" v-for="film in films">
           <div class="immagine">
               <!-- <img :src="path + film.poster_path"> -->
@@ -51,10 +52,10 @@
                 </li>
                 <li>
                   <h3 class="vote">
-                    <i v-for="i in stellePiene(film.vote_average)" class="piene fas fa-star"></i>
-                    <i v-for="i in stelleVuote(film.vote_average)" class="vuote far fa-star"></i>
+                    <i v-for="stelle in stellePiene(film.vote_average)" class="piene fas fa-star"></i>
+                    <i v-for="stelle in stelleVuote(film.vote_average)" class="vuote far fa-star"></i>
                   </h3>
-                </li>film.vote_average
+                </li>
                 <li><h3 class="trama">Trama:&nbsp; <span>{{ film.overview }}</span></h3></li>
               </ul>
             </div>

@@ -2,7 +2,7 @@ var app = new Vue({
   el: '#app',
   data: {
     films: [],
-    query: "Inserisci titolo",
+    query: "",
     apiKey: "aca274e1075a0e9933ec2a888c6e1be0",
     lang: "it-It",
     path: "https://image.tmdb.org/t/p/w342"
@@ -17,8 +17,8 @@ var app = new Vue({
   // vote_average: 3.5
   // vote_count: 2
   methods : {
-    // faccio una funzione per arrotondare un numero e togliere la virgola con parseint
-    // poi con v-for in html ottengo il numero delle stelle colorate a cui sottraggo il numero delle stelle vuote
+    // con parseInt arrotondo il numero e ricavo il numero di stelle che prendo con v-for da html
+    // per le stelle vuote le sottraggo a 5 in modo da non averne in eccesso
     stellePiene(voto){
       return parseInt(voto/2);
     },

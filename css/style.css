@@ -49,49 +49,42 @@ header img {
   height: 50px;
   margin-top: 10px;
 }
+/* PARTE DELLE LOCANDINE */
 .films-container {
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  padding: 30px 0;
-  border-radius: 5px;
-}
-.films-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 .film {
   display: flex;
   justify-content: flex-start;
   flex-basis: 250px;
   margin: 10px 2px;
+  position: relative;
 }
 .film .immagine{
-  position: relative;
   transition: .5s;
+}
+.film img {
+  width: 100%;
 }
 .film ul{
   padding: 20px;
 }
 .film .descrizione{
-  height: 100%;
   opacity: 0;
   position: absolute;
   top: 0;
   left: 0;
   bottom: 0;
-  right: 0;
   transition: .5s;
-  text-overflow: ellipsis;
   overflow: hidden;
   padding-top: 60px;
 }
 .film .descrizione:hover{
   opacity: 1;
-  background: rgba(46, 58, 70, 0.7);
+  background: rgba(46, 58, 70, 0.8);
   color: white;
   text-shadow: 1px 1px 1px black;
   z-index: 1;
@@ -103,12 +96,11 @@ header img {
   z-index: 1;
 }
 .film .descrizione img{
-  width: 30px;
+  width: 40px;
   height: 30px;
 }
 .film ul{
   list-style: none;
-  height: 100%;
 }
 .film .titolo {
   text-transform: uppercase;
@@ -125,19 +117,19 @@ header img {
   font-size: 20px;
 }
 .film .trama{
+  font-size: 16px;
 }
-/* INPUT */
+/* INPUT ANIMATO*/
 input[type="text"] {
   height: 30px;
   font-size: 25px;
-  display: inline-block;
-  font-family: "Lato";
   font-weight: 100;
   border: none;
   outline: none;
   color: black;
   padding: 3px;
-  padding-right: 60px;
+  padding-left: 10px;
+  padding-right: 50px;
   width: 0px;
   position: absolute;
   top: 20px;
